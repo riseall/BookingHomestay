@@ -8,7 +8,7 @@
               <h5 class="card-title fw-semibold mb-4">Tambah Data Rumah</h5>
               <div class="card">
                 <div class="card-body">
-                  <form method="POST" action="{{ route('data_rumah.store') }}">
+                  <form method="POST" action="{{ route('data_rumah.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                       <label class="form-label">Id Rumah</label>
@@ -20,7 +20,7 @@
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Foto</label>
-                      <input type="text" class="form-control" name="foto">
+                      <input type="file" class="form-control" name="foto">
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Fasilitas</label>

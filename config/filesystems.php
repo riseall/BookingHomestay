@@ -30,6 +30,11 @@ return [
 
     'disks' => [
 
+        'foto_rumah' => [
+            'driver' => 'local',
+            'root' => public_path('foto_rumah'),
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

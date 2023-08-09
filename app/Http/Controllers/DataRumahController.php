@@ -6,6 +6,8 @@ use App\Models\DataRumah;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
+use Storage;
+
 class DataRumahController extends Controller
 {
     public function index(){
@@ -14,9 +16,9 @@ class DataRumahController extends Controller
         return view('data_rumah.index', compact('data_rumah','jumlah_rumah'));
     }
 
-    public function show($id): View{
-        $data_rumah = DataRumah::findOrFail($id);
-        return view('data_rumah.detail', compact('data_rumah'));
+    public function show($id){
+        $data_rumah = DataRumah::find($id);
+        return view('data_rumah.show', compact('data_rumah'));
     }
 
     public function create(){
@@ -24,10 +26,17 @@ class DataRumahController extends Controller
     }
 
     public function store(Request $request){
+        $this->validate($request,[
+            'foto' => 'required|image|mimes:jpeg,jpg,png',
+        ]);
+        $foto_rumah = $request->foto;
+        $nama_file = time().'.'.$foto_rumah->getClientOriginalExtension();
+        $foto_rumah->move('foto_rumah/', $nama_file);
+
         $data_rumah = new DataRumah;
         $data_rumah->id_rumah = $request->id_rumah;
         $data_rumah->nama_rumah = $request->nama_rumah;
-        $data_rumah->foto = $request->foto;
+        $data_rumah->foto = $nama_file;
         $data_rumah->fasilitas = $request->fasilitas;
         $data_rumah->alamat = $request->alamat;
         $data_rumah->harga = $request->harga;
@@ -42,13 +51,26 @@ class DataRumahController extends Controller
 
     public function update(Request $request, $id){
         $data_rumah = DataRumah::find($id);
-        $data_rumah->id_rumah = $request->id_rumah;
-        $data_rumah->nama_rumah = $request->nama_rumah;
-        $data_rumah->foto = $request->foto;
-        $data_rumah->fasilitas = $request->fasilitas;
-        $data_rumah->alamat = $request->alamat;
-        $data_rumah->harga = $request->harga;
-        $data_rumah->update();
+        if($request->has('foto')){
+            $foto_rumah = $request->foto;
+            $nama_file = time().'.'.$foto_rumah->getClientOriginalExtension();
+            $foto_rumah->move('foto_rumah/', $nama_file);    
+            $data_rumah->id_rumah = $request->id_rumah;
+            $data_rumah->nama_rumah = $request->nama_rumah;
+            $data_rumah->foto = $nama_file;
+            $data_rumah->fasilitas = $request->fasilitas;
+            $data_rumah->alamat = $request->alamat;
+            $data_rumah->harga = $request->harga;
+            $data_rumah->update();
+        }
+        else{
+            $data_rumah->id_rumah = $request->id_rumah;
+            $data_rumah->nama_rumah = $request->nama_rumah;
+            $data_rumah->fasilitas = $request->fasilitas;
+            $data_rumah->alamat = $request->alamat;
+            $data_rumah->harga = $request->harga;
+            $data_rumah->update();
+        }
         return redirect('data_rumah');
     }
 

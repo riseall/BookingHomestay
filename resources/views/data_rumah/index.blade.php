@@ -45,7 +45,9 @@
                     <td>{{ $rumah->id }}</td>
                     <td>{{ $rumah->id_rumah }}</td>
                     <td>{{ $rumah->nama_rumah }}</td>
-                    <td>{{ $rumah->foto }}</td>
+                    <td>
+                        <img src="{{ asset('foto_rumah/'.$rumah->foto) }}" alt="" style="width: 60px; height: 40px">
+                    </td>
                     <td>{{ $rumah->fasilitas }}</td>
                     <td>{{ $rumah->alamat }}</td>
                     <td>{{ $rumah->harga }}</td>
