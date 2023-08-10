@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('data_rumah', 'App\Http\Controllers\DataRumahController@index');
+Route::get('data_rumah', 'App\Http\Controllers\DataRumahController@index')->name('data_rumah.index');
 
 Route::get('data_rumah/{id}, App\Http\Controllers\DataRumahController@show')->name('data_rumah.show');
 

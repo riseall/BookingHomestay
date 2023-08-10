@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="align-content: center;">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Rumah</a>
+        <a class="nav-link" href="{{ route('data_rumah.index') }}">Rumah</a>
         <a class="nav-link" href="#">Reservasi</a>
       </div>
     </div>
