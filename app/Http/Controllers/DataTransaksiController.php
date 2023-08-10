@@ -28,6 +28,11 @@ class DataTransaksiController extends Controller
         return view('booking_transaksi.create', compact('list_data_pelanggan', 'list_data_rumah'));
     }
 
+    public function edit($id){
+        $transaksi = DataTransaksi::find($id);
+        return view('booking_transaksi.edit', compact('transaksi'));
+    }
+
     public function store(Request $request){
         $booking_transaksi = new DataTransaksi;
         $booking_transaksi->id_transaksi = $request->id_transaksi;

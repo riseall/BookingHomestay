@@ -15,27 +15,23 @@
                       <input type="text" readonly class="form-control" name="id_transaksi" value="{{ $transaksi->id_transaksi }}">
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">id pelanggan</label>
-                      <input type="text" class="form-control" name="id_pelanggan" value="{{ $transaksi->id_pelanggan }}">
+                      <label class="form-label">Nama pelanggan</label>
+                      <input type="text" class="form-control" name="nama_pelanggan" value="{{ $transaksi->data_pelanggan['nama_pelanggan'] }}">
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">id rumah</label>
-                      <input type="text" class="form-control" name="id_rumah" value="{{ $transaksi->id_rumah }}">
+                      <label class="form-label">Nama rumah</label>
+                      <input type="text" class="form-control" name="nama_rumah" value="{{ $transaksi->data_rumah['nama_rumah'] }}">
                     </div>
-                    <div class="mb-3">
-                      <label class="form-label">nama rumah</label>
-                      <input type="text" class="form-control" name="nama_rumah" value="{{ $trasaksi->nama_rumah }}">
-                    </div>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                       <label class="form-label">Alamat rumah</label>
                       <input type="text" class="form-control" name="alamat_rumah" value="{{ $transaksi->alamat_rumah }}">
                     </div>
                     <div class="mb-3">
                       <label class="form-label">total</label>
                       <input type="text" class="form-control" name="total" value="{{ $transaksi->total }}">
-                    </div>
+                    </div> -->
                     <div class="mb-3">
-                      <label class="form-label">tanggal transaksi</label>
+                      <label class="form-label">Tanggal Transaksi</label>
                       <input type="date" class="form-control" name="trans_date" value="{{ $transaksi->trans_date }}">
                     </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>

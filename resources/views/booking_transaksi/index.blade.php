@@ -28,6 +28,15 @@
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Tanggal Transaksi</h6>
                         </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Detail</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Edit</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Hapus</h6>
+                        </th>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +49,14 @@
                     <!-- <td>{{ $transaksi->data_rumah['alamat_rumah'] }}</td>
                     <td>{{ $transaksi->data_rumah['total'] }}</td> -->
                     <td>{{ $transaksi->trans_date }}</td>
+                    <td><a href="{{ route('booking_transaksi.show', $transaksi->id) }}" class="btn btn-warning btn-sm">Detail</a></td>
+                    <td><a href="{{ route('booking_transaksi.edit', $transaksi->id) }}" class="btn btn-warning btn-sm">Edit</a></td>
+                    <td>
+                        <form action="{{ route('booking_transaksi.destroy', $transaksi->id) }}" method="post">
+                            @csrf
+                            <button class="btn btn-warning btn-sm" onclick="return confirm('Anda yakin ingin Menghapus data ini?.')">Hapus</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
