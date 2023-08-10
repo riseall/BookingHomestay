@@ -8,7 +8,8 @@
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
         <a class="nav-link" href="{{ route('data_rumah.index') }}">Rumah</a>
-        <a class="nav-link" href="{{ route('booking_transaksi.index') }}">Reservasi</a>
+        <a class="nav-link" href="{{ route('booking_transaksi.index') }}">Booking</a>
+        <a class="nav-link" href="{{ route('data_pelanggan.index') }}">Data Pelanggan</a>
       </div>
     </div>
     <form class="d-flex">

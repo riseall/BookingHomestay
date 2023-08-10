@@ -14,25 +14,19 @@
                           <h6 class="fw-semibold mb-0">Id transaksi</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">id pelanggan</h6>
+                          <h6 class="fw-semibold mb-0">Nama pelanggan</h6>
                         </th>
                         <th class="border-bottom-0">  
-                          <h6 class="fw-semibold mb-0">nama rumah</h6>
+                          <h6 class="fw-semibold mb-0">Nama rumah</h6>
+                        </th>
+                        <!-- <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Alamat rumah</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">alamat rumah</h6>
-                        </th>
+                          <h6 class="fw-semibold mb-0">Total</h6>
+                        </th> -->
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">total</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">tanggal transaksi</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Edit</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Hapus</h6>
+                          <h6 class="fw-semibold mb-0">Tanggal Transaksi</h6>
                         </th>
                 </tr>
             </thead>
@@ -41,18 +35,11 @@
                 <tr>
                     <td>{{ $transaksi->id }}</td>
                     <td>{{ $transaksi->id_transaksi }}</td>
-                    <td>{{ $transaksi->id_pelanggan }}</td>
-                    <td>{{ $transaksi->nama_rumah }}</td>
-                    <td>{{ $transaksi->alamat_rumah }}</td>
-                    <td>{{ $transaksi->total }}</td>
+                    <td>{{ $transaksi->data_pelanggan['nama_pelanggan'] }}</td>
+                    <td>{{ $transaksi->data_rumah['nama_rumah'] }}</td>
+                    <!-- <td>{{ $transaksi->data_rumah['alamat_rumah'] }}</td>
+                    <td>{{ $transaksi->data_rumah['total'] }}</td> -->
                     <td>{{ $transaksi->trans_date }}</td>
-                    <td><a href="{{ route('booking_transaksi.edit', $transaksi->id) }}" class="btn btn-warning btn-sm">Edit</a></td>
-                    <td>
-                        <form action="{{ route('booking_transaksi.destroy', $transaksi->id) }}" method="post">
-                            @csrf
-                            <button class="btn btn-warning btn-sm" onclick="return confirm('Anda yakin ingin Menghapus data ini?.')">Hapus</button>
-                        </form>
-                    </td>
                 </tr>
                 @endforeach
             </tbody>

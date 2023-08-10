@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('booking_transaksi', function (Blueprint $table) {
             $table->id();
             $table->string('id_transaksi')->unique();
-            $table->integer('kode_pelanggan');
-            $table->integer('kode_rumah');
+            $table->string('kode_pelanggan');
+            $table->string('kode_rumah');
             $table->string('nama_rumah');
             $table->string('alamat_rumah');
             $table->date('trans_date');
