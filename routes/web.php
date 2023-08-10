@@ -17,6 +17,21 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('data_pelanggan', 'App\Http\Controllers\DataPelangganController@index')->name('data_pelanggan.index');
+
+Route::get('data_pelanggan/show/{id}, App\Http\Controllers\DataPelangganController@show')->name('data_pelanggan.show');
+
+Route::get('data_pelanggan/create', 'App\Http\Controllers\DataPelangganController@create')->name('data_pelanggan.create');
+
+Route::post('data_pelanggan/store', 'App\Http\Controllers\DataPelangganController@store')->name('data_pelanggan.store');
+
+Route::get('data_pelanggan/edit/{id}', 'App\Http\Controllers\DataPelangganController@edit')->name('data_pelanggan.edit');
+
+Route::post('data_pelanggan/update/{id}', 'App\Http\Controllers\DataPelangganController@update')->name('data_pelanggan.update');
+
+Route::post('data_pelanggan/delete/{id}', 'App\Http\Controllers\DataPelangganController@destroy')->name('data_pelanggan.destroy');
+
+
 Route::get('data_rumah', 'App\Http\Controllers\DataRumahController@index')->name('data_rumah.index');
 
 Route::get('data_rumah/show/{id}, App\Http\Controllers\DataRumahController@show')->name('data_rumah.show');
