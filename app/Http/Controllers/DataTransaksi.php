@@ -12,7 +12,8 @@ class DataRumahController extends Controller
 {
     public function index(){
         $booking_transaksi = DataTransaksi::all();
-        $total =$booking_transaksi->total = $request->total->count();
+        $total =$booking_transaksi->count();
+        return view('booking_transaksi.index', compact('booking_transaksi','total'));
     }
     public function show($id){
         $booking_transaksi = DataTransaksi::find($id);
