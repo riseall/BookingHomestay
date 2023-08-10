@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('data_rumah', 'App\Http\Controllers\DataRumahController@index')->name('data_rumah.index');
 
-Route::get('data_rumah/{id}, App\Http\Controllers\DataRumahController@show')->name('data_rumah.show');
+Route::get('data_rumah/show/{id}, App\Http\Controllers\DataRumahController@show')->name('data_rumah.show');
 
 Route::get('data_rumah/create', 'App\Http\Controllers\DataRumahController@create')->name('data_rumah.create');
 
