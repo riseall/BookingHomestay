@@ -4,6 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card border-0 shadow-sm rounded">
+                <form action="{{ route('data_rumah.show', $rumah->id) }}" method="get"></form>
                     <!-- <div class="card-body">
                         <img src="{{ asset('storage/posts/'.$post->image) }}" class="w-100 rounded">
                         <hr>
