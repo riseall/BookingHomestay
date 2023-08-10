@@ -30,3 +30,18 @@ Route::get('data_rumah/edit/{id}', 'App\Http\Controllers\DataRumahController@edi
 Route::post('data_rumah/update/{id}', 'App\Http\Controllers\DataRumahController@update')->name('data_rumah.update');
 
 Route::post('data_rumah/delete/{id}', 'App\Http\Controllers\DataRumahController@destroy')->name('data_rumah.destroy');
+
+
+Route::get('booking_transaksi', 'App\Http\Controllers\DataTransaksiController@index')->name('booking_transaksi.index');
+
+Route::get('booking_transaksi/show/{id}, App\Http\Controllers\DataTransaksiController@show')->name('booking_transaksi.show');
+
+Route::get('booking_transaksi/create', 'App\Http\Controllers\DataTransaksiController@create')->name('booking_transaksi.create');
+
+Route::post('booking_transaksi/store', 'App\Http\Controllers\DataTransaksiController@store')->name('booking_transaksi.store');
+
+Route::get('booking_transaksi/edit/{id}', 'App\Http\Controllers\DataTransaksiController@edit')->name('booking_transaksi.edit');
+
+Route::post('booking_transaksi/update/{id}', 'App\Http\Controllers\DataTransaksiController@update')->name('booking_transaksi.update');
+
+Route::post('booking_transaksi/delete/{id}', 'App\Http\Controllers\DataTransaksiController@destroy')->name('booking_transaksi.destroy');

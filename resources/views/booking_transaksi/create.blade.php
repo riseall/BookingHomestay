@@ -5,7 +5,7 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4">Tambah Data Rumah</h5>
+              <h5 class="card-title fw-semibold mb-4">Tambah Data transaksi</h5>
               <div class="card">
                 <div class="card-body">
                   <form method="POST" action="{{ route('booking_transaksi.store') }}" enctype="multipart/form-data">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="mb-3">
                       <label class="form-label">id rumah</label>
-                      <input type="file" class="form-control" name="id_rumah">
+                      <input type="text" class="form-control" name="id_rumah">
                     </div>
                     <div class="mb-3">
                       <label class="form-label">nama rumah</label>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="mb-3">
                       <label class="form-label">tanggal transaksi</label>
-                      <input type="text" class="form-control" name="trans_date">
+                      <input type="date" class="form-control" name="trans_date">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>

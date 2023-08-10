@@ -1,8 +1,8 @@
 @extends('layout.master')
 @section('content')
     <div class="card-body p-4">
-        <h4 class="card-title fw-semibold mb-4">Data Rumah</h4>
-        <p align="right"><a href="{{ route('data_rumah.create') }}" class="btn btn-primary">Tambah Rumah</a></p>
+        <h4 class="card-title fw-semibold mb-4">Data Transaksi</h4>
+        <p align="right"><a href="{{ route('booking_transaksi.create') }}" class="btn btn-primary">Tambah transaksi</a></p>
         <div class="table-responsive">
         <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
@@ -16,20 +16,17 @@
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">id pelanggan</h6>
                         </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0"></h6>
+                        <th class="border-bottom-0">  
+                          <h6 class="fw-semibold mb-0">nama rumah</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Fasilitas</h6>
+                          <h6 class="fw-semibold mb-0">alamat rumah</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Alamat</h6>
+                          <h6 class="fw-semibold mb-0">total</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Harga</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Detail</h6>
+                          <h6 class="fw-semibold mb-0">tanggal transaksi</h6>
                         </th>
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Edit</h6>
@@ -40,21 +37,18 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($data_rumah as $rumah)
+                @foreach($booking_transaksi as $transaksi)
                 <tr>
-                    <td>{{ $rumah->id }}</td>
-                    <td>{{ $rumah->id_rumah }}</td>
-                    <td>{{ $rumah->nama_rumah }}</td>
+                    <td>{{ $transaksi->id }}</td>
+                    <td>{{ $transaksi->id_transaksi }}</td>
+                    <td>{{ $transaksi->id_pelanggan }}</td>
+                    <td>{{ $transaksi->nama_rumah }}</td>
+                    <td>{{ $transaksi->alamat_rumah }}</td>
+                    <td>{{ $transaksi->total }}</td>
+                    <td>{{ $transaksi->trans_date }}</td>
+                    <td><a href="{{ route('booking_transaksi.edit', $transaksi->id) }}" class="btn btn-warning btn-sm">Edit</a></td>
                     <td>
-                        <img src="{{ asset('foto_rumah/'.$rumah->foto) }}" alt="" style="width: 60px; height: 40px">
-                    </td>
-                    <td>{{ $rumah->fasilitas }}</td>
-                    <td>{{ $rumah->alamat }}</td>
-                    <td>{{ $rumah->harga }}</td>
-                    <td><a href="{{ route('data_rumah.show', $rumah->id) }}" class="btn btn-warning btn-sm">Detail</a></td>
-                    <td><a href="{{ route('data_rumah.edit', $rumah->id) }}" class="btn btn-warning btn-sm">Edit</a></td>
-                    <td>
-                        <form action="{{ route('data_rumah.destroy', $rumah->id) }}" method="post">
+                        <form action="{{ route('booking_transaksi.destroy', $transaksi->id) }}" method="post">
                             @csrf
                             <button class="btn btn-warning btn-sm" onclick="return confirm('Anda yakin ingin Menghapus data ini?.')">Hapus</button>
                         </form>
@@ -65,7 +59,7 @@
         </table>
         <div class="pull-left">
             <strong>
-                Jumlah Rumah : {{ $jumlah_rumah }}
+                total transaksi : {{ $total }}
             </strong>
         </div>
     </div>
