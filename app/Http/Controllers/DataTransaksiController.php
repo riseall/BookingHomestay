@@ -18,8 +18,10 @@ class DataTransaksiController extends Controller
         return view('booking_transaksi.index', compact('booking_transaksi','total'));
     }
     public function show($id){
-        $booking_transaksi = DataTransaksi::find($id);
-        return view('booking_transaksi.show', compact('booking_transaksi'));
+        $halaman = 'data_transaksi';
+        $booking_transaksi = DataTransaksi::findOrfail($id);
+        $data_rumah = DataRumah::findOrfail($id);
+        return view('booking_transaksi.show', compact('halaman','booking_transaksi','data_rumah'));
     }
 
     public function create(){
@@ -48,11 +50,8 @@ class DataTransaksiController extends Controller
     public function update(Request $request, $id){
             $booking_transaksi = DataTransaksi::find($id);
             $booking_transaksi->id_transaksi = $request->id_transaksi;
-            $booking_transaksi->id_pelanggan = $request->id_pelanggan;
-            $booking_transaksi->id_rumah = $request->id_rumah;
-            $booking_transaksi->nama_rumah = $request->nama_rumah;
-            $booking_transaksi->alamat_rumah = $request->alamat_rumah;
-            $booking_transaksi->total = $request->total;
+            // $booking_transaksi->kode_pelanggan = $request->kode_pelanggan;
+            // $booking_transaksi->kode_rumah = $request->id_rumah;
             $booking_transaksi->trans_date = $request->trans_date;
             $booking_transaksi->update();
         return redirect('booking_transaksi');

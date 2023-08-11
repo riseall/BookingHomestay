@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('index')->name('index');
 });
 
 Route::get('data_pelanggan', 'App\Http\Controllers\DataPelangganController@index')->name('data_pelanggan.index');
 
-Route::get('data_pelanggan/show/{id}, App\Http\Controllers\DataPelangganController@show')->name('data_pelanggan.show');
+Route::get('data_pelanggan/show/{id}', 'App\Http\Controllers\DataPelangganController@show')->name('data_pelanggan.show');
 
 Route::get('data_pelanggan/create', 'App\Http\Controllers\DataPelangganController@create')->name('data_pelanggan.create');
 
@@ -34,7 +34,7 @@ Route::post('data_pelanggan/delete/{id}', 'App\Http\Controllers\DataPelangganCon
 
 Route::get('data_rumah', 'App\Http\Controllers\DataRumahController@index')->name('data_rumah.index');
 
-Route::get('data_rumah/show/{id}, App\Http\Controllers\DataRumahController@show')->name('data_rumah.show');
+Route::get('data_rumah/{id}', 'App\Http\Controllers\DataRumahController@show')->name('data_rumah.show');
 
 Route::get('data_rumah/create', 'App\Http\Controllers\DataRumahController@create')->name('data_rumah.create');
 
@@ -49,7 +49,7 @@ Route::post('data_rumah/delete/{id}', 'App\Http\Controllers\DataRumahController@
 
 Route::get('booking_transaksi', 'App\Http\Controllers\DataTransaksiController@index')->name('booking_transaksi.index');
 
-Route::get('booking_transaksi/show/{id}, App\Http\Controllers\DataTransaksiController@show')->name('booking_transaksi.show');
+Route::get('booking_transaksi/show/{id}', 'App\Http\Controllers\DataTransaksiController@show')->name('booking_transaksi.show');
 
 Route::get('booking_transaksi/create', 'App\Http\Controllers\DataTransaksiController@create')->name('booking_transaksi.create');
 

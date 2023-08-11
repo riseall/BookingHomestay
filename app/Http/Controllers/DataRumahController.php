@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataRumah;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 use Storage;

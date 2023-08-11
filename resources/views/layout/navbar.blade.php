@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="align-content: center;">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
         <a class="nav-link" href="{{ route('data_rumah.index') }}">Rumah</a>
         <a class="nav-link" href="{{ route('booking_transaksi.index') }}">Booking</a>
         <a class="nav-link" href="{{ route('data_pelanggan.index') }}">Data Pelanggan</a>
